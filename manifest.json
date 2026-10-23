@@ -1,0 +1,33 @@
+{
+  "name": "RiYooIQ - Game Edukasi Anak",
+  "short_name": "RiYooIQ",
+  "description": "Game edukasi adu pintar matematika dan sains untuk anak-anak dengan arena pertarungan tarik tambang, adu panco, dan dorong tepi jurang.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#1D3557",
+  "theme_color": "#118AB2",
+  "lang": "id",
+  "categories": ["education", "games", "kids"],
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icon-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

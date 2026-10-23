@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>RiYooIQ - Game Edukasi Pertarungan Cerdas Anak</title>
+    <meta name="description" content="RiYooIQ: Game edukasi adu pintar matematika dan sains untuk anak-anak dengan arena pertarungan tarik tambang, adu panco, dan dorong tepi jurang.">
+    
+    <!-- Google Fonts: Fredoka & Nunito -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- PWA & Mobile Web App Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="assets/icon-192.png">
+    <meta name="theme-color" content="#118AB2">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="RiYooIQ">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Floating Background Decorative Elements -->
+    <div class="bg-decorations" aria-hidden="true">
+        <span class="floating-item float-item-1">➕</span>
+        <span class="floating-item float-item-2">⭐</span>
+        <span class="floating-item float-item-3">🪐</span>
+        <span class="floating-item float-item-4">✖️</span>
+        <span class="floating-item float-item-5">🌱</span>
+        <span class="floating-item float-item-6">💡</span>
+        <span class="floating-item float-item-7">➗</span>
+        <span class="floating-item float-item-8">✨</span>
+        <span class="floating-item float-item-9">🦖</span>
+        <span class="floating-item float-item-10">🚀</span>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div id="app-container" class="app-container">
+
+        <!-- ========================================== -->
+        <!-- SCREEN 1: LOADING SCREEN                   -->
+        <!-- ========================================== -->
+        <section id="screen-loading" class="screen screen-loading">
+            <div class="loading-content">
+                <div class="logo-official-wrapper bounce-anim">
+                    <img src="assets/logo.png" alt="RiYooIQ Official Logo" class="official-logo-img" width="112" height="112">
+                </div>
+                <h1 class="logo-title">RiYoo<span class="logo-iq">IQ</span></h1>
+                <p class="logo-tagline">Arena Pertarungan Cerdas Anak Indonesia</p>
+
+                <div class="loading-bar-wrapper">
+                    <div id="loading-bar-fill" class="loading-bar-fill"></div>
+                </div>
+                <p id="loading-text" class="loading-text">Menyiapkan arena pertarungan seru... (0%)</p>
+                <div class="motivational-pill">💡 "Semakin cepat berpikir, semakin kuat pukulanmu!"</div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SCREEN 2: MAIN MENU                        -->
+        <!-- ========================================== -->
+        <section id="screen-menu" class="screen screen-menu hidden">
+            <!-- Top Controls (Audio & Install) -->
+            <header class="menu-top-bar">
+                <div class="sound-controls">
+                    <button id="btn-toggle-sfx" class="btn-icon active" title="Atur Efek Suara">
+                        <span class="icon-text">SFX: ON 🔔</span>
+                    </button>
+                    <button id="btn-toggle-music" class="btn-icon active" title="Atur Musik Latar">
+                        <span class="icon-text">Musik: ON 🎵</span>
+                    </button>
+                </div>
+                <div class="menu-right-actions">
+                    <button id="btn-install-app" class="btn-icon btn-install" title="Install Aplikasi (Tanpa Play Store)">
+                        <span class="icon-text">📲 Install App</span>
+                    </button>
+                    <button id="btn-how-to-play" class="btn-icon btn-help" title="Petunjuk & Cara Bermain">
+                        <span class="icon-text">❓ Cara Main</span>
+                    </button>
+                </div>
+            </header>
+
+            <div class="menu-center-content">
+                <div class="hero-logo-box">
+                    <div class="hero-logo-badge">
+                        <img src="assets/logo.png" alt="RiYooIQ Official Logo" class="hero-official-logo" width="96" height="96">
+                    </div>
+                    <div class="hero-tag">GAME EDUKASI ANAK TERBAIK</div>
+                    <h1 class="hero-title pulse-glow">RiYoo<span class="hero-iq">IQ</span></h1>
+                    <p class="hero-subtitle">Tarik Tambang • Adu Panco • Dorong Jurang</p>
+                </div>
+
+                <div class="hero-banner-container">
+                    <img src="assets/banner.jpg" alt="RiYooIQ Game Banner" class="hero-banner-img" width="560" height="315">
+                </div>
+
+                <div class="menu-action-box">
+                    <button id="btn-start-game" class="btn-primary btn-big btn-pulse">
+                        <span class="btn-icon-emoji">🚀</span>
+                        <span class="btn-main-text">MULAI MAIN SEKARANG!</span>
+                    </button>
+                    <button id="btn-install-pwa-main" class="btn-install-cta" title="Install Langsung ke HP / Laptop">
+                        <span class="cta-icon">📲</span>
+                        <div class="cta-text">
+                            <strong>INSTALL APLIKASI DI HP / LAPTOP</strong>
+                            <span>Gratis & Langsung Terpasang Tanpa Perlu Masuk Play Store!</span>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Feature Highlights Cards -->
+                <div class="feature-badges">
+                    <div class="badge-item">
+                        <span class="badge-icon">🧠</span>
+                        <div class="badge-desc">
+                            <strong>20.000+ Soal Unik</strong>
+                            <span>Matematika & IPA</span>
+                        </div>
+                    </div>
+                    <div class="badge-item">
+                        <span class="badge-icon">🤼</span>
+                        <div class="badge-desc">
+                            <strong>1P vs AI & 2P Lokal</strong>
+                            <span>Main Bersama Teman</span>
+                        </div>
+                    </div>
+                    <div class="badge-item">
+                        <span class="badge-icon">📱</span>
+                        <div class="badge-desc">
+                            <strong>Touch & Keyboard</strong>
+                            <span>HP, Tablet, Laptop</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SCREEN 3: SETUP SCREEN 1 - PILIH TEMA SOAL -->
+        <!-- ========================================== -->
+        <section id="screen-setup-1" class="screen screen-setup hidden">
+            <header class="setup-header">
+                <button id="btn-setup1-back" class="btn-back">⬅️ Menu</button>
+                <div class="setup-step-pill">Langkah 1 dari 2</div>
+                <h2 class="setup-title">Pilih Tema Pertandingan</h2>
+                <p class="setup-desc">Pilih bidang pengetahuan yang ingin kamu taklukkan!</p>
+            </header>
+
+            <div class="theme-selection-grid">
+                <!-- Theme Card 1: Matematika -->
+                <div class="theme-card selected" data-theme="matematika" id="card-theme-math">
+                    <div class="theme-card-banner banner-math">
+                        <span class="theme-icon">📐</span>
+                        <span class="theme-bubble">10.000+ Soal</span>
+                    </div>
+                    <div class="theme-card-body">
+                        <h3 class="theme-name">Matematika Cepat</h3>
+                        <p class="theme-summary">Asah kecepatan berhitung, logika angka, dan ketangkasan matematika!</p>
+                        <ul class="theme-tags">
+                            <li>➕ Penjumlahan & Pengurangan</li>
+                            <li>✖️ Perkalian & Pembagian</li>
+                            <li>🧩 KABATAKU & Pola Angka</li>
+                            <li>🔷 Geometri & Luas Keliling</li>
+                            <li>📖 Soal Cerita Seru</li>
+                        </ul>
+                    </div>
+                    <div class="theme-check-mark">✔️ Dipilih</div>
+                </div>
+
+                <!-- Theme Card 2: IPA / Sains -->
+                <div class="theme-card" data-theme="ipa" id="card-theme-science">
+                    <div class="theme-card-banner banner-science">
+                        <span class="theme-icon">🔬</span>
+                        <span class="theme-bubble">10.000+ Soal</span>
+                    </div>
+                    <div class="theme-card-body">
+                        <h3 class="theme-name">IPA & Sains Seru</h3>
+                        <p class="theme-summary">Jelajahi misteri alam semesta, rahasia hewan, tumbuhan, dan tubuh manusia!</p>
+                        <ul class="theme-tags">
+                            <li>🦁 Klasifikasi Hewan & Makanan</li>
+                            <li>🌿 Bagian & Adaptasi Tumbuhan</li>
+                            <li>🫀 Organ Tubuh & Panca Indera</li>
+                            <li>🪐 Tata Surya & Planet</li>
+                            <li>🧊 Perubahan Wujud Benda & Energi</li>
+                        </ul>
+                    </div>
+                    <div class="theme-check-mark">✔️ Dipilih</div>
+                </div>
+            </div>
+
+            <footer class="setup-footer">
+                <button id="btn-setup1-next" class="btn-primary btn-next">
+                    <span>Lanjut Pilih Arena</span>
+                    <span class="arrow-icon">➡️</span>
+                </button>
+            </footer>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SCREEN 4: SETUP SCREEN 2 - ARENA & ATURAN  -->
+        <!-- ========================================== -->
+        <section id="screen-setup-2" class="screen screen-setup hidden">
+            <header class="setup-header">
+                <button id="btn-setup2-back" class="btn-back">⬅️ Ganti Tema</button>
+                <div class="setup-step-pill">Langkah 2 dari 2</div>
+                <h2 class="setup-title">Atur Arena & Pertandingan</h2>
+                <p class="setup-desc">Tentukan arena aksi, jumlah soal, dan tingkat kesulitan.</p>
+            </header>
+
+            <div class="setup-form-container">
+                <!-- Group 1: Pilihan Arena -->
+                <div class="form-group">
+                    <label class="group-label">1. Pilih Arena Mini-Game Animasi (HTML5 Canvas 60 FPS):</label>
+                    <div class="arena-selection-grid">
+                        <div class="arena-card selected" data-arena="tug_of_war" id="arena-tug">
+                            <div class="arena-badge-icon">🪢</div>
+                            <h4 class="arena-name">Tarik Tambang</h4>
+                            <p class="arena-desc">Tarik tali tambang melintasi garis tengah dan jatuhkan lawan!</p>
+                            <span class="card-check-pill">Aktif</span>
+                        </div>
+                        <div class="arena-card" data-arena="arm_wrestling" id="arena-arm">
+                            <div class="arena-badge-icon">🦾</div>
+                            <h4 class="arena-name">Adu Panco</h4>
+                            <p class="arena-desc">Adu kekuatan tangan di atas meja panco sampai lawan terhempas!</p>
+                            <span class="card-check-pill">Aktif</span>
+                        </div>
+                        <div class="arena-card" data-arena="cliff_push" id="arena-cliff">
+                            <div class="arena-badge-icon">⛰️</div>
+                            <h4 class="arena-name">Dorong di Tepi Jurang</h4>
+                            <p class="arena-desc">Dorong lawan di atas jembatan batu hingga terjatuh ke jurang!</p>
+                            <span class="card-check-pill">Aktif</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Group 2: Mode Lawan -->
+                <div class="form-group">
+                    <label class="group-label">2. Pilih Mode Pertandingan:</label>
+                    <div class="pill-options-grid">
+                        <button class="btn-pill-option btn-mode selected" data-mode="vs_ai">
+                            <span class="pill-emoji">🤖</span>
+                            <div class="pill-info">
+                                <strong>1 Pemain (VS Komputer / AI)</strong>
+                                <span>Adu kecepatan melawan robot pintar</span>
+                            </div>
+                        </button>
+                        <button class="btn-pill-option btn-mode" data-mode="multiplayer">
+                            <span class="pill-emoji">👥</span>
+                            <div class="pill-info">
+                                <strong>2 Pemain (Lokal 1 Perangkat)</strong>
+                                <span>Split Touch HP/Tablet atau Keyboard Laptop</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Group 3: Jumlah Soal Target -->
+                <div class="form-group">
+                    <label class="group-label">3. Target Jumlah Jawaban Benar:</label>
+                    <div class="button-toggle-row">
+                        <button class="btn-toggle-item btn-qcount" data-count="5">5 Soal</button>
+                        <button class="btn-toggle-item btn-qcount selected" data-count="10">10 Soal</button>
+                        <button class="btn-toggle-item btn-qcount" data-count="15">15 Soal</button>
+                        <button class="btn-toggle-item btn-qcount" data-count="20">20 Soal</button>
+                        <button class="btn-toggle-item btn-qcount" data-count="25">25 Soal</button>
+                    </div>
+                </div>
+
+                <!-- Group 4: Tingkat Kesulitan -->
+                <div class="form-group">
+                    <label class="group-label">4. Tingkat Kesulitan:</label>
+                    <div class="diff-options-grid">
+                        <button class="btn-diff-item btn-diff" data-diff="easy">
+                            <span class="diff-icon">🌱</span>
+                            <strong class="diff-title">Easy (Santai)</strong>
+                            <span class="diff-desc">Soal dasar, AI 70% akurat (4-7 detik)</span>
+                        </button>
+                        <button class="btn-diff-item btn-diff selected" data-diff="normal">
+                            <span class="diff-icon">⭐</span>
+                            <strong class="diff-title">Normal (Standar)</strong>
+                            <span class="diff-desc">Soal menengah, AI 85% akurat (2.5-4.5 detik)</span>
+                        </button>
+                        <button class="btn-diff-item btn-diff" data-diff="hard">
+                            <span class="diff-icon">🔥</span>
+                            <strong class="diff-title">Hard (Tantangan)</strong>
+                            <span class="diff-desc">Soal menantang, AI 95% akurat (1.2-2.8 detik)</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="setup-footer">
+                <button id="btn-start-match" class="btn-primary btn-big btn-pulse">
+                    <span class="btn-icon-emoji">⚔️</span>
+                    <span>MULAI PERTANDINGAN!</span>
+                </button>
+            </footer>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SCREEN 5: GAMEPLAY SCREEN                  -->
+        <!-- ========================================== -->
+        <section id="screen-gameplay" class="screen screen-gameplay hidden">
+            <!-- Dynamic Top HUD -->
+            <header class="game-hud">
+                <div class="hud-player-info p1-hud">
+                    <span class="player-avatar-icon">👦</span>
+                    <div class="player-meta">
+                        <span class="player-name">Pemain 1</span>
+                        <span class="player-score-badge"><span id="hud-p1-score">0</span> Poin</span>
+                    </div>
+                </div>
+
+                <!-- Power Balance Tug Meter in Middle -->
+                <div class="hud-center-meter">
+                    <div class="meter-header">
+                        <span class="meter-team-left">⬅️ P1 Dominan</span>
+                        <span id="hud-arena-title" class="meter-arena-title">Arena Pertandingan</span>
+                        <span class="meter-team-right">Lawan Dominan ➡️</span>
+                    </div>
+                    <div class="tug-meter-bar-track">
+                        <div id="tug-fill-p1" class="tug-bar-fill-left"></div>
+                        <div id="tug-fill-p2" class="tug-bar-fill-right"></div>
+                        <div class="tug-center-notch"></div>
+                        <div id="tug-indicator-needle" class="tug-indicator-needle">⚡</div>
+                    </div>
+                    <div id="hud-target-goal" class="meter-goal-pill">Target: 10 Jawaban</div>
+                </div>
+
+                <div class="hud-player-info p2-hud">
+                    <div class="player-meta text-right">
+                        <span class="player-name" id="hud-p2-name">Pemain 2 / AI</span>
+                        <span class="player-score-badge"><span id="hud-p2-score">0</span> Poin</span>
+                    </div>
+                    <span class="player-avatar-icon">🤖</span>
+                </div>
+
+                <button id="btn-game-pause" class="btn-icon-pause" title="Jeda Pertandingan">⏸️</button>
+            </header>
+
+            <!-- 60 FPS HTML5 Canvas Arena -->
+            <div class="arena-canvas-container">
+                <canvas id="arena-canvas" width="800" height="340"></canvas>
+            </div>
+
+            <!-- Dynamic Question Panels (Split Screen Responsive) -->
+            <div class="gameplay-panels-wrapper">
+
+                <!-- PANEL 1: PLAYER 1 (Left Side) -->
+                <div id="panel-p1" class="player-panel panel-left">
+                    <div class="panel-header">
+                        <div class="badge-group">
+                            <span class="player-side-pill p1-pill">Pemain 1</span>
+                            <span id="p1-category" class="category-pill">Penjumlahan</span>
+                        </div>
+                        <div id="p1-streak-badge" class="streak-badge hidden">🔥 KOMBO 2x!</div>
+                    </div>
+
+                    <div class="question-box">
+                        <p id="p1-question" class="question-text">Memuat pertanyaan...</p>
+                    </div>
+
+                    <div class="options-grid">
+                        <button class="option-btn p1-option-btn" data-opt="0">
+                            <span class="key-badge">A / 1</span>
+                            <span class="btn-opt-text">Opsi A</span>
+                        </button>
+                        <button class="option-btn p1-option-btn" data-opt="1">
+                            <span class="key-badge">S / 2</span>
+                            <span class="btn-opt-text">Opsi B</span>
+                        </button>
+                        <button class="option-btn p1-option-btn" data-opt="2">
+                            <span class="key-badge">D / 3</span>
+                            <span class="btn-opt-text">Opsi C</span>
+                        </button>
+                        <button class="option-btn p1-option-btn" data-opt="3">
+                            <span class="key-badge">F / 4</span>
+                            <span class="btn-opt-text">Opsi D</span>
+                        </button>
+                    </div>
+
+                    <!-- Lock Penalty Overlay -->
+                    <div id="p1-lock-overlay" class="panel-lock-overlay hidden">
+                        <span class="lock-icon">🔒</span>
+                        <span class="lock-title">SALAH JAWAB!</span>
+                        <span class="lock-desc">Tombol terkunci selama:</span>
+                        <span id="p1-lock-time" class="lock-countdown">1.5s</span>
+                    </div>
+                </div>
+
+                <!-- PANEL 2A: VS AI STATUS CARD (When 1P mode is active) -->
+                <div id="panel-ai" class="player-panel panel-right ai-panel">
+                    <div class="panel-header">
+                        <span class="player-side-pill ai-pill">Robot AI</span>
+                        <span class="category-pill">Komputer</span>
+                    </div>
+
+                    <div class="ai-avatar-box">
+                        <div class="ai-avatar-glow">🤖</div>
+                        <h4 id="ai-status-text" class="ai-status">AI sedang menghitung...</h4>
+                        <div class="ai-thinking-bar-track">
+                            <div id="ai-thinking-bar" class="ai-thinking-bar-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="ai-question-bubble">
+                        <span class="bubble-label">Soal AI:</span>
+                        <p id="ai-question-text" class="ai-q-text">"Sedang memproses..."</p>
+                    </div>
+
+                    <div class="ai-tip-box">
+                        💡 <strong>Tips Cepat:</strong> Jawab lebih cepat dari AI untuk mendorongnya jatuh atau menarik tali kemenangan!
+                    </div>
+                </div>
+
+                <!-- PANEL 2B: PLAYER 2 CONTROLS (When Local Multiplayer is active) -->
+                <div id="panel-p2" class="player-panel panel-right hidden">
+                    <div class="panel-header">
+                        <div class="badge-group">
+                            <span class="player-side-pill p2-pill">Pemain 2</span>
+                            <span id="p2-category" class="category-pill">Penjumlahan</span>
+                        </div>
+                        <div id="p2-streak-badge" class="streak-badge hidden">🔥 KOMBO 2x!</div>
+                    </div>
+
+                    <div class="question-box">
+                        <p id="p2-question" class="question-text">Memuat pertanyaan...</p>
+                    </div>
+
+                    <div class="options-grid">
+                        <button class="option-btn p2-option-btn" data-opt="0">
+                            <span class="key-badge">J / ⬅️</span>
+                            <span class="btn-opt-text">Opsi A</span>
+                        </button>
+                        <button class="option-btn p2-option-btn" data-opt="1">
+                            <span class="key-badge">K / ⬆️</span>
+                            <span class="btn-opt-text">Opsi B</span>
+                        </button>
+                        <button class="option-btn p2-option-btn" data-opt="2">
+                            <span class="key-badge">L / ⬇️</span>
+                            <span class="btn-opt-text">Opsi C</span>
+                        </button>
+                        <button class="option-btn p2-option-btn" data-opt="3">
+                            <span class="key-badge">; / ➡️</span>
+                            <span class="btn-opt-text">Opsi D</span>
+                        </button>
+                    </div>
+
+                    <!-- Lock Penalty Overlay for P2 -->
+                    <div id="p2-lock-overlay" class="panel-lock-overlay hidden">
+                        <span class="lock-icon">🔒</span>
+                        <span class="lock-title">SALAH JAWAB!</span>
+                        <span class="lock-desc">Tombol terkunci selama:</span>
+                        <span id="p2-lock-time" class="lock-countdown">1.5s</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SCREEN 6: VICTORY / RESULT SCREEN          -->
+        <!-- ========================================== -->
+        <section id="screen-victory" class="screen screen-victory hidden">
+            <div class="victory-card">
+                <div class="trophy-box bounce-anim">
+                    <span class="trophy-emoji">🏆</span>
+                </div>
+
+                <h2 id="vic-title" class="victory-title">HORE! KAMU MENANG!</h2>
+                <p id="vic-subtitle" class="victory-subtitle">Otak cerdas dan kecepatan jarimu berhasil mengalahkan lawan!</p>
+
+                <!-- Comparison Stats Grid -->
+                <div class="victory-stats-grid">
+                    <div id="vic-p1-stats" class="stat-card p1-stat-card">
+                        <!-- Filled dynamically -->
+                    </div>
+                    <div id="vic-p2-stats" class="stat-card p2-stat-card">
+                        <!-- Filled dynamically -->
+                    </div>
+                </div>
+
+                <div class="victory-actions">
+                    <button id="btn-play-again" class="btn-primary btn-big btn-pulse">
+                        <span>🔄 Main Lagi</span>
+                    </button>
+                    <button id="btn-back-menu" class="btn-secondary btn-big">
+                        <span>🏠 Kembali ke Menu</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- MODAL: CARA BERMAIN (HOW TO PLAY)          -->
+        <!-- ========================================== -->
+        <div id="modal-howtoplay" class="modal-overlay hidden">
+            <div class="modal-card">
+                <header class="modal-header">
+                    <h3 class="modal-title">📖 Cara Bermain RiYooIQ</h3>
+                    <button id="btn-close-howtoplay" class="modal-close-btn">&times;</button>
+                </header>
+                <div class="modal-body">
+                    <div class="guide-step">
+                        <span class="guide-num">1</span>
+                        <div class="guide-text">
+                            <strong>Adu Cepat Menjawab Soal:</strong>
+                            <p>Jawab soal matematika atau IPA pilihan ganda secepat mungkin. Setiap jawaban benar akan memberi dorongan atau tarikan kekuatan ke arah lawan!</p>
+                        </div>
+                    </div>
+                    <div class="guide-step">
+                        <span class="guide-num">2</span>
+                        <div class="guide-text">
+                            <strong>Hati-hati Jawaban Salah:</strong>
+                            <p>Jika salah menjawab, tombolmu akan terkunci selama 1.5 detik sebagai penalti, memberi kesempatan bagi lawan untuk menyerang balik!</p>
+                        </div>
+                    </div>
+                    <div class="guide-step">
+                        <span class="guide-num">3</span>
+                        <div class="guide-text">
+                            <strong>Kontrol Keyboard di Desktop:</strong>
+                            <p>Pemain 1: Tombol <strong>A, S, D, F</strong> atau <strong>1, 2, 3, 4</strong>.<br>
+                            Pemain 2: Tombol <strong>J, K, L, ;</strong> atau <strong>Panah Kiri, Atas, Bawah, Kanan</strong>.</p>
+                        </div>
+                    </div>
+                    <div class="guide-step">
+                        <span class="guide-num">4</span>
+                        <div class="guide-text">
+                            <strong>Kontrol Layar Sentuh (Mobile/Tablet):</strong>
+                            <p>Cukup sentuh salah satu dari 4 tombol pilihan ganda. Mendukung Multi-Touch untuk 2 pemain sekaligus di 1 layar HP/Tablet tanpa bentrok!</p>
+                        </div>
+                    </div>
+                </div>
+                <footer class="modal-footer">
+                    <button onclick="document.getElementById('modal-howtoplay').classList.add('hidden')" class="btn-primary">
+                        <span>Siap, Mengerti! 👍</span>
+                    </button>
+                </footer>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- MODAL: PAUSE                               -->
+        <!-- ========================================== -->
+        <div id="modal-pause" class="modal-overlay hidden">
+            <div class="modal-card modal-small">
+                <h3 class="modal-title">⏸️ Permainan Dijeda</h3>
+                <p class="modal-subtitle">Mau lanjut bertanding atau istirahat dulu?</p>
+                <div class="pause-actions">
+                    <button id="btn-resume-game" class="btn-primary btn-big">
+                        <span>▶️ Lanjutkan Pertandingan</span>
+                    </button>
+                    <button id="btn-quit-game" class="btn-secondary btn-big">
+                        <span>🚪 Keluar ke Menu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- MODAL: INSTALL APP (PWA / TANPA PLAYSTORE) -->
+        <!-- ========================================== -->
+        <div id="modal-install" class="modal-overlay hidden">
+            <div class="modal-card">
+                <header class="modal-header">
+                    <div class="modal-title-with-icon">
+                        <img src="assets/logo.png" alt="RiYooIQ Logo" class="modal-app-logo" width="52" height="52">
+                        <div>
+                            <h3 class="modal-title">Install RiYooIQ</h3>
+                            <span class="modal-subtitle-badge">Bisa Diinstal Sendiri Tanpa Play Store!</span>
+                        </div>
+                    </div>
+                    <button id="btn-close-install" class="modal-close-btn">&times;</button>
+                </header>
+
+                <div class="modal-body">
+                    <!-- Direct Action Banner -->
+                    <div class="install-prompt-banner">
+                        <div class="prompt-text">
+                            <strong>Pasang RiYooIQ Sekarang</strong>
+                            <p>Aplikasi akan terpasang di layar utama HP / desktop Anda dan bisa dimainkan offline kapan saja!</p>
+                        </div>
+                        <button id="btn-trigger-pwa-install" class="btn-primary btn-pulse">
+                            <span>📲 Pasang Sekarang</span>
+                        </button>
+                    </div>
+
+                    <!-- Steps per device -->
+                    <h4 class="install-section-title">📌 Cara Pasang Manual Berdasarkan Perangkat:</h4>
+
+                    <div class="guide-step">
+                        <span class="guide-num">🤖</span>
+                        <div class="guide-text">
+                            <strong>HP Android (Chrome, Edge, Samsung Internet):</strong>
+                            <p>1. Tekan tombol menu titik tiga (<strong>⋮</strong>) di pojok kanan atas browser.<br>
+                            2. Pilih menu <strong>"Install Aplikasi"</strong> atau <strong>"Tambahkan ke Layar Utama" (Add to Home screen)</strong>.<br>
+                            3. Aplikasi langsung terpasang di HP Anda lengkap dengan ikon resminya tanpa perlu akun Play Store!</p>
+                        </div>
+                    </div>
+
+                    <div class="guide-step">
+                        <span class="guide-num">🍎</span>
+                        <div class="guide-text">
+                            <strong>iPhone / iPad (iOS Safari):</strong>
+                            <p>1. Buka game di browser Safari.<br>
+                            2. Tekan tombol <strong>Share</strong> (ikon kotak dengan panah ke atas di bagian bawah).<br>
+                            3. Gulir ke bawah dan pilih <strong>"Add to Home Screen" (Tambahkan ke Layar Utama)</strong>.</p>
+                        </div>
+                    </div>
+
+                    <div class="guide-step">
+                        <span class="guide-num">💻</span>
+                        <div class="guide-text">
+                            <strong>Laptop / Komputer (Windows, Mac, Linux):</strong>
+                            <p>Klik ikon monitor kecil atau tanda tambah (<strong>➕</strong>) di address bar peramban (Chrome / Edge), lalu klik <strong>"Install"</strong>.</p>
+                        </div>
+                    </div>
+
+                    <div class="guide-step">
+                        <span class="guide-num">📦</span>
+                        <div class="guide-text">
+                            <strong>Ingin File .APK Mentah?</strong>
+                            <p>Game ini 100% PWA-compliant. Anda bisa mengonversi URL PWA ini menjadi file <code>.apk</code> langsung via <strong>PWABuilder.com</strong> secara gratis untuk dibagikan via WhatsApp atau flashdisk.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="modal-footer">
+                    <button onclick="document.getElementById('modal-install').classList.add('hidden')" class="btn-secondary">
+                        <span>Tutup Panduan</span>
+                    </button>
+                </footer>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/audio.js"></script>
+    <script src="js/questions.js"></script>
+    <script src="js/canvas-arena.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
